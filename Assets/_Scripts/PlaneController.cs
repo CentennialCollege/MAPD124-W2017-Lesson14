@@ -14,7 +14,10 @@ public class PlaneController : MonoBehaviour {
 	}
 
 	private void _movePlane() {
-		transform.position = new Vector2 (Input.mousePosition.x - 160f, this.fixedYPosition);
+		var mousePosition = Input.mousePosition;
+		mousePosition = Camera.main.ScreenToWorldPoint (mousePosition);
+
+		transform.position = new Vector2 (mousePosition.x, this.fixedYPosition);
 
 	}
 
